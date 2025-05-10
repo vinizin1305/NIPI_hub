@@ -1,0 +1,67 @@
+-- NIPI.hub - Hub para Blox Fruits (dark style)
+
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui")
+local frame = Instance.new("Frame")
+
+-- GUI settings
+screenGui.Parent = game.CoreGui
+frame.Parent = screenGui
+frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30) -- Dark background
+frame.Position = UDim2.new(0.4, 0, 0.3, 0)
+frame.Size = UDim2.new(0, 300, 0, 300)
+frame.Active = true
+frame.Draggable = true
+
+-- Função para criar um botão
+local function createButton(text, posY, callback)
+    local button = Instance.new("TextButton")
+    button.Parent = frame
+    button.Size = UDim2.new(0, 250, 0, 30)
+    button.Position = UDim2.new(0, 25, 0, posY)
+    button.Text = text
+    button.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.Font = Enum.Font.SourceSans
+    button.TextSize = 18
+    button.MouseButton1Click:Connect(callback)
+    return button
+end
+
+-- Função para Auto Farm
+local function autoFarm()
+    loadstring(game:HttpGet("https://sualink.com/autofarm.lua"))()
+end
+
+-- Função para Caçar Terror Shark
+local function caçarShark()
+    loadstring(game:HttpGet("https://sualink.com/shark.lua"))()
+end
+
+-- Função para Sniper de Frutas
+local function sniperDeFrutas()
+    loadstring(game:HttpGet("https://sualink.com/sniperfrutas.lua"))()
+end
+
+-- Função para Auto Boss
+local function autoBoss()
+    loadstring(game:HttpGet("https://sualink.com/autoBoss.lua"))()
+end
+
+-- Função para Safe Mode (controla vida)
+local function safeMode()
+    loadstring(game:HttpGet("https://sualink.com/safemode.lua"))()
+end
+
+-- Função para Teleport
+local function teleport()
+    loadstring(game:HttpGet("https://sualink.com/teleport.lua"))()
+end
+
+-- Criando os botões da Hub
+createButton("Auto Farm", 20, autoFarm)
+createButton("Caçar Terror Shark", 60, caçarShark)
+createButton("Sniper de Frutas", 100, sniperDeFrutas)
+createButton("Auto Boss", 140, autoBoss)
+createButton("Safe Mode", 180, safeMode)
+createButton("Teleport", 220, teleport)
